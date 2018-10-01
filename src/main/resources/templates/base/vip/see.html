@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('查看会员信息')"></head>
+<body>
+	<div id="dpLTE" class="container-fluid" v-cloak  style=" overflow-y:auto; overflow-x:auto; width:720px; height:420px;">
+		<div class="box-body" style="width: 100%;height: 500px;">
+			<table id="example2" class="table table-bordered table-hover">
+				<tbody>
+				<tr>
+					<th rowspan="3"><image style="width: 100px;height: 100px;border-radius: 100%;" :src="wxUser.portrait"/></th>
+					<th>账户：{{wxUser.account}}</th>
+					<th>密码：<font face="宋体" style="color: darkred;">******</font></th>
+					<th>昵称：{{wxUser.nick}}</th>
+					<th>地址：{{wxUser.province}} - {{wxUser.city}} - {{wxUser.area}}</th>
+				</tr>
+				<tr>
+					<th><span class="label label-danger"  v-if="(wxUser.sex==0)">男</span><span class="label label-info"  v-if="(wxUser.sex==1)">女</span><span class="label label-danger"  v-if="(wxUser.sex!=1 & wxUser.sex!=0)">变态</span></th>
+					<th>{{wxUser.age}}岁</th>
+					<th>邮编：{{wxUser.postcode}}</th>
+					<th>详细地址：{{wxUser.address}}</th>
+				</tr>
+				<tr>
+					<th>行业：{{wxUser.ins}}</th>
+					<th>等级：
+						<span class="label label-info"  v-if="(wxUser.grade==1)">青铜</span>
+						<span class="label label-info"  v-if="(wxUser.grade==2)">白银</span>
+						<span class="label label-info"  v-if="(wxUser.grade==3)">黄金</span>
+						<span class="label label-info"  v-if="(wxUser.grade==4)">铂金</span>
+						<span class="label label-info"  v-if="(wxUser.grade==5)">钻石</span>
+						<span class="label label-info"  v-if="(wxUser.grade==6)">黑卡</span></th>
+					<th>{{wxUser.inTime}}</th>
+					<th>状态：
+						<span class="label label-default"  v-if="(wxUser.state==0)">注销</span>
+						<span class="label label-success"  v-if="(wxUser.state==1)">正常</span>
+						<span class="label label-danger"  v-if="(wxUser.state==2)">黑名单(屏蔽电话)</span>
+						<span class="label label-warning"  v-if="(wxUser.state==3)">禁用(不允许进入)</span>
+						<span class="label label-info"  v-if="(wxUser.state==4)">只发布文字</span>
+						<span class="label label-primary"  v-if="(wxUser.state==5)">只能浏览</span>
+					</th>
+				</tr>
+				</tbody>
+			</table>
+
+			<table id="example1" class="table table-bordered table-hover">
+				<tbody>
+				<tr>
+					<th>账户余额：{{wxUser.accountBalance}}</th>
+					<th>累计交易额:{{wxUser.turnover}}</th>
+					<th>累计佣金:{{wxUser.commission}}</th>
+					<th>线下人数:{{wxUser.n}}</th>
+					<th>电子券数:{{wxUser.m}}({{wxUser.mBlance}})</th>
+				</tr>
+				<tr>
+					<th colspan="2">二维码：<br/><img src="../../images/clcode.png"/></th>
+					<th colspan="3">备注：<br/>{{wxUser.els}}</th>
+				</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+
+	</div>
+	<div th:include="include/footer_js::footer"></div>
+	<script th:src="@{/js/base/vip/see.js}"></script>
+</body>
+</html>

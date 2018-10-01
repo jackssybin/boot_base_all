@@ -1,0 +1,45 @@
+﻿文档信息：
+    1.微信端介绍：该框架涉及到权限的使用，如果使用到接口或者微信端等其他部分的使用，需要自己在
+    项目路径：dp-BOOT\src\main\java\net\sc\dp\config\ShiroConfig.java
+    下找到自己需要过滤的文件路径即可
+    如：filterMap.put("/wx/**", "anon");//跳过拦截  过滤   /wx/   的所有拦截
+    eg:微信端访问：localhost/dp/wechat/wechat.html
+
+
+    2.所有样式的引入都有配置文件控制，请严格遵循配置的资源路径存放引入文件，方便管理与配置
+
+    3.项目对于信息和页面的生成采用的事集成generator的方式，前台采用value.js
+
+    4.使用代码生成器的时候请正确填写包名，如果包名有误，会影响系统的扫描与自动配置。
+
+    5.框架使用过程中请自行配置热部署（5秒刷新，包括后台代码），热部署配置文件已经处理好，Ctrl+Shift+Alt+/   选择 Registry...     找到并勾选compiler.automake.allow.when.app.running
+   make project ...查找make project automatically --> 选中
+
+    6.框架集成分布式与缓存，开启请修改配置文件
+
+    7.登陆设置单点登录。
+
+    8.公众号退款：dp-BOOT\src\main\java\net\sc\dp\modules\wechat\utils\money_return包里面下面的MoneyTest就是测试的未封装的公众号红包退款。
+
+    9.h5支付（jsapi、扫码）：待完善   支付请参考
+    我的博客：http://download.csdn.net/download/qq_16393511/10199644
+    API：http://blog.csdn.net/qq_16393511/article/details/79031662
+    码云：https://gitee.com/boss_project/payplantform
+
+    10.文件的上传与下载，SpringBoot不同于其他框架，因为他的Tomcat是内置的，所以获取的服务器路径不在本项目中，在你的仓库的jar下面的Tomcat中，如有上传下载操作，请自行处理路径，我的路径是做的初步适配的路径。
+    如有好的方法欢迎共享。
+
+    11.我在做数据的查询的时候添加了所有数据字段的默认 like 查询，也就是说现在的列表在查询结果的时候只需要在list.html中删除你不需要的字段即可,
+
+
+
+    12.有问题欢迎及时反馈。
+
+    打印sql语句是在mybatis.xml里面配置相关的数据信息
+           <!-- 打印查询语句 -->
+            <setting name="logImpl" value="STDOUT_LOGGING" />
+           需要其他配置的自己写进去就好了，如果需要批量操作使用缓存的，请确认你的缓存在运行中（是否开启redis缓存）
+
+
+           微信端授权测试url:
+           https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx024f6de48cf83505&redirect_uri=http%3A%2F%2F  这里填写域名至详细的方法名的encodeURIComponent编码  &response_type=code&scope=snsapi_base&state=STATE&connect_redirect=1#wechat_redirect

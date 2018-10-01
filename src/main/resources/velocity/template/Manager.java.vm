@@ -1,0 +1,29 @@
+package ${package}.modules.${module}.manager;
+
+import java.util.List;
+
+import ${package}.common.entity.Page;
+import ${package}.common.entity.Query;
+import ${package}.modules.${module}.entity.${className}Entity;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @url ${url}
+ * @date ${datetime}
+ */
+public interface ${className}Manager {
+
+	List<${className}Entity> list${className}(Page<${className}Entity> page, Query search);
+	
+	int save${className}(${className}Entity ${objName});
+	
+	${className}Entity get${className}ById(Long id);
+	
+	int update${className}(${className}Entity ${objName});
+	
+	int batchRemove(Long[] id);
+	
+}

@@ -1,0 +1,54 @@
+ <!DOCTYPE html>  
+ <html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+ <title>单个文件上传</title>
+<style type="text/css">  
+ #preview, .img, img  
+ {  
+	 width:400px;  
+	 height:300px;  
+ }  
+ #preview  
+ {  
+	border:1px solid #CCC;  
+ }  
+ </style>  
+ </head>  
+<body style="text-align: center;">
+
+<!--单个文件上传操作-->
+<div align="center">
+ <div id="preview"></div>
+ <form action="../../file/upload/uploadOne" method="post" enctype="multipart/form-data">
+  <input type="file" onchange="preview(this)" name="file"/>
+  <input type="submit" value="确认上传"/>
+ </form>
+</div>
+
+
+
+
+
+
+
+ <script type="text/javascript">    
+ function preview(file)  
+ {  
+ var prevDiv = document.getElementById('preview');  
+ if (file.files && file.files[0])  
+ {  
+ var reader = new FileReader();  
+ reader.onload = function(evt){  
+ prevDiv.innerHTML = '<img src="' + evt.target.result + '" />';  
+}    
+ reader.readAsDataURL(file.files[0]);  
+}  
+ else    
+ {  
+ prevDiv.innerHTML = '<div class="img" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\'' + file.value + '\'"></div>';  
+ }  
+ }  
+ </script>  
+ </body>  
+ </html>  

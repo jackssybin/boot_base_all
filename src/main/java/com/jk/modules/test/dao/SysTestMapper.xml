@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jk.modules.test.dao.SysTestMapper">
+	
+	<select id="listForPage" resultType="com.jk.modules.test.entity.SysTestEntity">
+		SELECT
+			`user_id`, 
+			`username`, 
+			`password`, 
+			`email`, 
+			`mobile`, 
+			`status`, 
+			`remark`, 
+			`user_id_create`, 
+			`gmt_create`, 
+			`gmt_modified`
+		FROM
+			sys_test
+        <where>
+			                <if test="user_id != null and user_id != ''">
+                    AND u.user_id LIKE concat('%',#{user_id},'%')
+                </if>
+			                <if test="username != null and username != ''">
+                    AND u.username LIKE concat('%',#{username},'%')
+                </if>
+			                <if test="password != null and password != ''">
+                    AND u.password LIKE concat('%',#{password},'%')
+                </if>
+			                <if test="email != null and email != ''">
+                    AND u.email LIKE concat('%',#{email},'%')
+                </if>
+			                <if test="mobile != null and mobile != ''">
+                    AND u.mobile LIKE concat('%',#{mobile},'%')
+                </if>
+			                <if test="status != null and status != ''">
+                    AND u.status LIKE concat('%',#{status},'%')
+                </if>
+			                <if test="remark != null and remark != ''">
+                    AND u.remark LIKE concat('%',#{remark},'%')
+                </if>
+			                <if test="user_id_create != null and user_id_create != ''">
+                    AND u.user_id_create LIKE concat('%',#{user_id_create},'%')
+                </if>
+			                <if test="gmt_create != null and gmt_create != ''">
+                    AND u.gmt_create LIKE concat('%',#{gmt_create},'%')
+                </if>
+			                <if test="gmt_modified != null and gmt_modified != ''">
+                    AND u.gmt_modified LIKE concat('%',#{gmt_modified},'%')
+                </if>
+			        </where>
+		ORDER BY
+			user_id DESC
+	</select>
+	
+	<insert id="save">
+		INSERT INTO sys_test (
+			`username`, 
+			`password`, 
+			`email`, 
+			`mobile`, 
+			`status`, 
+			`remark`, 
+			`user_id_create`, 
+			`gmt_create`, 
+			`gmt_modified`
+		)
+		VALUES (
+			#{username}, 
+			#{password}, 
+			#{email}, 
+			#{mobile}, 
+			#{status}, 
+			#{remark}, 
+			#{userIdCreate}, 
+			#{gmtCreate}, 
+			#{gmtModified}
+		)
+	</insert>
+	
+	<select id="getObjectById" resultType="com.jk.modules.test.entity.SysTestEntity">
+		SELECT
+			`user_id`, 
+			`username`, 
+			`password`, 
+			`email`, 
+			`mobile`, 
+			`status`, 
+			`remark`, 
+			`user_id_create`, 
+			`gmt_create`, 
+			`gmt_modified`
+		FROM
+			sys_test
+		WHERE
+			user_id = #{userId}
+	</select>
+	
+	<update id="update">
+		UPDATE sys_test
+	 	<set>
+			<if test="username != null">`username` = #{username}, </if>
+			<if test="password != null">`password` = #{password}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="mobile != null">`mobile` = #{mobile}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="userIdCreate != null">`user_id_create` = #{userIdCreate}, </if>
+			<if test="gmtCreate != null">`gmt_create` = #{gmtCreate}, </if>
+			<if test="gmtModified != null">`gmt_modified` = #{gmtModified}</if>
+		</set>
+		WHERE
+			user_id = #{userId}
+	</update>
+	
+	<delete id="batchRemove">
+		DELETE
+		FROM
+			sys_test
+		WHERE
+			user_id IN
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

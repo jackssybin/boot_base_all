@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('InnoDB free: 7168 kB')"></head>
+<body>
+<div id="dpLTE" class="container-fluid" v-cloak style=" overflow-y:auto; overflow-x:auto; width:420px; height:420px;">
+	<table class="form" id="form">
+		<tr>
+			<td class="formTitle">账户<font face="宋体">*</font></td>
+			<td class="formValue">
+				<input type="text" class="form-control" placeholder="账户" v-model="wxUser.account" isvalid="yes" checkexpession="NotNull">
+			</td>
+		</tr>
+		<tr>
+			<td class="formTitle">密码<font face="宋体">*</font></td>
+			<td class="formValue">
+				<input type="password" class="form-control" placeholder="密码" v-model="wxUser.password" isvalid="yes" checkexpession="NotNull">
+			</td>
+		</tr>
+		<!--<tr>
+            <td class="formTitle">头像<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="file" class="form-control" placeholder="头像" v-model="wxUser.portrait" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<tr>
+			<td class="formTitle">微信Key</td>
+			<td class="formValue">
+				<input type="text" class="form-control" placeholder="微信Key" v-model="wxUser.wxkey" isvalid="no">
+			</td>
+		</tr>
+		<!--<tr>
+            <td class="formTitle">code码<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="code码" v-model="wxUser.code" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<tr>
+			<td class="formTitle">昵称<font face="宋体">*</font></td>
+			<td class="formValue">
+				<input type="text" class="form-control" placeholder="昵称" v-model="wxUser.nick" isvalid="yes" checkexpession="NotNull">
+			</td>
+		</tr>
+		<tr>
+			<td class="formTitle">性别<font face="宋体">*</font></td>
+			<td class="formValue">
+				<select class="form-control" v-model="wxUser.sex" isvalid="yes" checkexpession="NotNull">
+					<option value="0">男</option>
+					<option value="1">女</option>
+				</select>
+				<!--<input type="text" class="form-control" placeholder="性别 0:男 1:女" v-model="wxUser.sex" isvalid="yes" checkexpession="NotNull">-->
+			</td>
+		</tr>
+		<tr>
+			<td class="formTitle">省市区<font face="宋体">*</font></td>
+			<td class="formValue">
+				<select class="form-control" v-model="wxUser.state" isvalid="yes" checkexpession="NotNull">
+					<option value="1">正常</option>
+					<option value="2">黑名单(屏蔽电话)</option>
+					<option value="3">禁用(不允许进入)</option>
+					<option value="4">只发布文字</option>
+					<option value="5">只能浏览</option>
+				</select>
+				<!--<input type="text" class="form-control" placeholder="省" v-model="wxUser.province" isvalid="yes" checkexpession="NotNull">-->
+				<div data-toggle="distpicker" >
+					<select id="province" data-province="-选择省-" v-model="wxUser.province" isvalid="no" checkexpession="NotNull" style="width: 80px;"></select>
+					<select id="city" data-city="-选择市-" placeholder="市" v-model="wxUser.city" isvalid="no" checkexpession="NotNull" style="width: 100px;"></select>
+					<select id="district" data-district="-选择区-" v-model="wxUser.area" isvalid="no" checkexpession="NotNull" style="width: 80px;"></select>
+				</div>
+			</td>
+		</tr>
+		<!--<tr>
+            <td class="formTitle">市<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="市" v-model="wxUser.city" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>
+        <tr>
+            <td class="formTitle">区<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="区" v-model="wxUser.area" isvalid="yes" checkexpession="NotNull">
+            </td>-->
+		</tr>
+		<tr>
+			<td class="formTitle">详细地址<font face="宋体">*</font></td>
+			<td class="formValue">
+				<input type="text" class="form-control" placeholder="详细地址" v-model="wxUser.address" isvalid="yes" checkexpession="NotNull">
+			</td>
+		</tr>
+		<tr>
+			<td class="formTitle">邮编</td>
+			<td class="formValue">
+				<input type="text" class="form-control" placeholder="邮编" v-model="wxUser.postcode" isvalid="no">
+			</td>
+		</tr>
+		<tr>
+			<td class="formTitle">生日</td>
+			<td class="formValue">
+				<input type="datetime" class="form-control" placeholder="生日" v-model="wxUser.birthday" isvalid="no">
+			</td>
+		</tr>
+		<tr>
+			<td class="formTitle">年龄</td>
+			<td class="formValue">
+				<input type="text" class="form-control" placeholder="年龄" v-model="wxUser.age" isvalid="no">
+			</td>
+		</tr>
+		<!--<tr>
+            <td class="formTitle">行业编号<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="行业编号" v-model="wxUser.industryid" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>
+        <tr>
+            <td class="formTitle">子行业编号<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="子行业编号" v-model="wxUser.subIndustryId" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<tr>
+			<td class="formTitle">行业<font face="宋体">*</font></td>
+			<td class="formValue">
+				<input type="text" class="form-control" placeholder="行业" v-model="wxUser.ins" isvalid="yes" checkexpession="NotNull">
+			</td>
+		</tr>
+		<!--<tr>
+            <td class="formTitle">会员等级<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="会员等级" v-model="wxUser.grade" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<!--<tr>
+            <td class="formTitle">在线方式 1:手机 2：电脑<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="在线方式 1:手机 2：电脑" v-model="wxUser.online" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<!--<tr>
+            <td class="formTitle">注册时间<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="注册时间" v-model="wxUser.inTime" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<!--<tr>
+            <td class="formTitle">经纬度<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="经纬度" v-model="wxUser.jwd" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<!--<tr>
+            <td class="formTitle">推荐人<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="推荐人" v-model="wxUser.referee" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<!--<tr>
+            <td class="formTitle">推荐人id<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="推荐人id" v-model="wxUser.refereeId" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<tr>
+			<td class="formTitle">状态<font face="宋体">*</font></td>
+			<td class="formValue">
+				<select class="form-control" v-model="wxUser.state" isvalid="yes" checkexpession="NotNull">
+					<option value="1">正常</option>
+					<option value="2">黑名单(屏蔽电话)</option>
+					<option value="3">禁用(不允许进入)</option>
+					<option value="4">只发布文字</option>
+					<option value="5">只能浏览</option>
+				</select>
+			</td>
+		</tr>
+		<!--<tr>
+            <td class="formTitle">推荐码<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="推荐码" v-model="wxUser.referral" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>
+        <tr>
+            <td class="formTitle">账户余额<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="账户余额" v-model="wxUser.accountBalance" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>
+        <tr>
+            <td class="formTitle">累计交易额<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="累计交易额" v-model="wxUser.turnover" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>
+        <tr>
+            <td class="formTitle">累计佣金<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="累计佣金" v-model="wxUser.commission" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>
+        <tr>
+            <td class="formTitle">线下人数<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="线下人数" v-model="wxUser.n" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>
+        <tr>
+            <td class="formTitle">电子券数<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="电子券数" v-model="wxUser.m" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>
+        <tr>
+            <td class="formTitle">电子券金额<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="电子券金额" v-model="wxUser.mBlance" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>
+        <tr>
+            <td class="formTitle">二维码<font face="宋体">*</font></td>
+            <td class="formValue">
+                <input type="text" class="form-control" placeholder="二维码" v-model="wxUser.qrCode" isvalid="yes" checkexpession="NotNull">
+            </td>
+        </tr>-->
+		<tr>
+			<td class="formTitle">备注</td>
+			<td class="formValue">
+				<textarea  class="form-control" placeholder="备注" v-model="wxUser.els" isvalid="no"></textarea>
+			</td>
+		</tr>
+	</table>
+</div>
+<div th:include="include/footer_js::footer"></div>
+<script th:src="@{/js/base/vip/add.js}"></script>
+<script th:src="@{/libs/distpicker.data.js}"></script>
+<script th:src="@{/libs/distpicker.js}"></script>
+</body>
+</html>

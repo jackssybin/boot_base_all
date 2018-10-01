@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+ <html>
+<head>
+ <style>
+  div.box{width:300px;padding:20px;margin:20px;border:4px dashed #ccc;}
+  div.box span{color:#999;font-style:italic;}
+  div.content{width:250px;margin:10px 0;padding:20px;border:2px solid #ff6666;}
+  input[type='checkbox']{margin:5px;}
+  input[type='button']{height:30px;margin:10px;padding:5px 10px;}
+ </style>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+ <title>单个文件下载</title>
+
+ </head>
+<body style="text-align: center;">
+
+
+<!--批量文件下载操作-->
+<div align="center">
+ <h3>通过IO下载</h3><br/>
+ <div class="box">
+  <input type="checkbox" name="test" value="1"/><span>文件1</span><br/>
+  <input type="checkbox" name="test" value="2"/><span>文件2</span><br/>
+  <input type="checkbox" name="test" value="3"/><span>文件3</span><br/>
+  <input type="checkbox" name="test" value="4"/><span>文件4</span><br/>
+  <input type='button' value='确认下载'class="btn btn-default" onclick="fun()" style="border-radius: 5px;"/>
+ </div>
+</div>
+
+
+
+
+
+
+
+<script language="JavaScript">
+ function fun(){
+    obj = document.getElementsByName("test");
+    check_val = [];
+    for(k in obj){
+     if(obj[k].checked)
+      check_val.push(obj[k].value);
+    }
+    location.href = '../../down/file/more?value='+check_val;
+ }
+
+ function goPage(url)
+ {
+     location.href=url;
+ }
+</script>
+ </body>
+ </html>

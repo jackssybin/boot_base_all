@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('系统用户测试')"></head>
+<body>
+	<div id="dpLTE" class="container-fluid" v-cloak>
+		<table class="form" id="form">
+			<tr>
+	            <td class="formTitle">用户名<font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="用户名" v-model="sysTest.username" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle">密码<font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="密码" v-model="sysTest.password" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle">邮箱<font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="邮箱" v-model="sysTest.email" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle">手机号<font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="手机号" v-model="sysTest.mobile" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle">状态 0:禁用，1:正常<font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="状态 0:禁用，1:正常" v-model="sysTest.status" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle">备注<font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="备注" v-model="sysTest.remark" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle">创建用户id<font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="创建用户id" v-model="sysTest.userIdCreate" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle">创建时间<font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="创建时间" v-model="sysTest.gmtCreate" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle">修改时间<font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="修改时间" v-model="sysTest.gmtModified" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+		</table>
+	</div>
+	<div th:include="include/footer_js::footer"></div>
+	<script th:src="@{/js/test/add.js}"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+-- 菜单SQL
+INSERT INTO `sys_menu` (`parent_id`, `name`, `url`, `perms`, `type`, `icon`)
+    VALUES ('1', '${comments}', '${viewPath}/list.html', NULL, '1', 'fa fa-file-code-o');
+
+-- 按钮父菜单ID
+set @parentId = @@identity;
+
+-- 菜单对应按钮SQL
+INSERT INTO `sys_menu` (`parent_id`, `name`, `perms`, `type`, `icon`)
+    SELECT @parentId, '刷新', '${authKey}:list', '2', 'fa fa-file-code-o';
+INSERT INTO `sys_menu` (`parent_id`, `name`, `perms`, `type`, `icon`)
+    SELECT @parentId, '新增', '${authKey}:save', '2', 'fa fa-file-code-o';
+INSERT INTO `sys_menu` (`parent_id`, `name`, `perms`, `type`, `icon`)
+    SELECT @parentId, '修改', '${authKey}:edit', '2', 'fa fa-file-code-o';
+INSERT INTO `sys_menu` (`parent_id`, `name`, `perms`, `type`, `icon`)
+    SELECT @parentId, '删除', '${authKey}:remove', '2', 'fa fa-file-code-o';

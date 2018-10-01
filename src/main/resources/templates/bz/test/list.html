@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('系统用户测试')"></head>
+<body>
+<div id="dpLTE" class="container-fluid" v-cloak>
+	<div class="row">
+		<div class="col-md-4 form-inline pull-left">
+			<div class="form-group">
+				                    <input v-model="user_id" @keyup.enter="load" type="text" class="form-control" placeholder="请输入用户id" style="width: 120px;" />
+				                    <input v-model="username" @keyup.enter="load" type="text" class="form-control" placeholder="请输入用户名" style="width: 120px;" />
+				                    <input v-model="password" @keyup.enter="load" type="text" class="form-control" placeholder="请输入密码" style="width: 120px;" />
+				                    <input v-model="email" @keyup.enter="load" type="text" class="form-control" placeholder="请输入邮箱" style="width: 120px;" />
+				                    <input v-model="mobile" @keyup.enter="load" type="text" class="form-control" placeholder="请输入手机号" style="width: 120px;" />
+				                    <input v-model="status" @keyup.enter="load" type="text" class="form-control" placeholder="请输入状态 0:禁用，1:正常" style="width: 120px;" />
+				                    <input v-model="remark" @keyup.enter="load" type="text" class="form-control" placeholder="请输入备注" style="width: 120px;" />
+				                    <input v-model="user_id_create" @keyup.enter="load" type="text" class="form-control" placeholder="请输入创建用户id" style="width: 120px;" />
+				                    <input v-model="gmt_create" @keyup.enter="load" type="text" class="form-control" placeholder="请输入创建时间" style="width: 120px;" />
+				                    <input v-model="gmt_modified" @keyup.enter="load" type="text" class="form-control" placeholder="请输入修改时间" style="width: 120px;" />
+				
+			</div>
+			<div class="form-group">
+			    <a class="btn btn-primary" @click="load"><i class="fa fa-search"></i>&nbsp;查询</a>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="btn-toolbar pull-right">
+				<div class="btn-group">
+		            <a v-if="hasPermission('bz:test:list')" class="btn btn-default" onclick="reload();"><i class="fa fa-refresh"></i>&nbsp;刷新</a>
+		            <a v-if="hasPermission('bz:test:save')" class="btn btn-default" @click="save"><i class="fa fa-plus"></i>&nbsp;新增</a>
+		            <a v-if="hasPermission('bz:test:edit')" class="btn btn-default" @click="edit"><i class="fa fa-pencil-square-o"></i>&nbsp;编辑</a>
+		            <a v-if="hasPermission('bz:test:remove')" class="btn btn-default" @click="remove"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+		        </div>
+	        </div>
+		</div>
+	</div>
+	<div class="row">
+		<table id="dataGrid"></table>
+	</div>
+</div>
+<div th:include="include/footer_js::footer"></div>
+<script th:src="@{/js/bz/test/list.js}"></script>
+</body>
+</html>

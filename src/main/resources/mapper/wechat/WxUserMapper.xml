@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jk.modules.wechat.dao.WxUserMapper">
+	
+	<select id="listForPage" resultType="com.jk.modules.wechat.entity.WxUserEntity">
+		SELECT
+			`id`, 
+			`account`, 
+			`password`, 
+			`portrait`, 
+			`wxkey`, 
+			`code`, 
+			`nick`, 
+			`sex`, 
+			`province`, 
+			`city`, 
+			`area`, 
+			`address`, 
+			`postcode`, 
+			`birthday`, 
+			`age`, 
+			`industryid`, 
+			`sub_industry_id`, 
+			`ins`,
+			`grade`, 
+			`online`, 
+			`in_time`, 
+			`jwd`, 
+			`referee`, 
+			`referee_id`, 
+			`state`, 
+			`referral`, 
+			`account_balance`, 
+			`turnover`, 
+			`commission`, 
+			`n`, 
+			`m`, 
+			`m_blance`, 
+			`qr_code`, 
+			`els`
+		FROM
+			wx_user u
+		<where>
+			<if test="account != null and account.trim() != ''">
+				AND u.account LIKE concat('%',#{account},'%')
+			</if>
+			<if test="nick != null and nick.trim() != ''">
+				AND u.nick LIKE concat('%',#{nick},'%')
+			</if>
+			<if test="address != null and address.trim() != ''">
+				AND u.address LIKE concat('%',#{address},'%')
+			</if>
+			<if test="referee != null and referee.trim() != ''">
+				AND u.referee LIKE concat('%',#{referee},'%')
+			</if>
+			<if test="wxkey != null and wxkey.trim() != ''">
+				AND u.wxkey = #{wxkey}
+			</if>
+			<if test="code != null and code.trim() != ''">
+				AND u.code = #{code}
+			</if>
+			<if test="sex != null and sex.trim() != ''">
+				AND u.sex = #{sex}
+			</if>
+			<if test="province != null and province.trim() != ''">
+				AND u.province = #{province}
+			</if>
+			<if test="city != null and city.trim() != ''">
+				AND u.city = #{city}
+			</if>
+			<if test="area != null and area.trim() != ''">
+				AND u.area = #{area}
+			</if>
+		</where>
+		ORDER BY
+			u.id DESC
+	</select>
+	
+	<insert id="save">
+		INSERT INTO wx_user (
+			`account`, 
+			`password`, 
+			`portrait`, 
+			`wxkey`, 
+			`code`, 
+			`nick`, 
+			`sex`, 
+			`province`, 
+			`city`, 
+			`area`, 
+			`address`, 
+			`postcode`, 
+			`birthday`, 
+			`age`, 
+			`industryid`, 
+			`sub_industry_id`, 
+			`ins`,
+			`grade`, 
+			`online`, 
+			`in_time`, 
+			`jwd`, 
+			`referee`, 
+			`referee_id`, 
+			`state`, 
+			`referral`, 
+			`account_balance`, 
+			`turnover`, 
+			`commission`, 
+			`n`, 
+			`m`, 
+			`m_blance`, 
+			`qr_code`, 
+			`els`
+		)
+		VALUES (
+			#{account}, 
+			#{password}, 
+			#{portrait}, 
+			#{wxkey}, 
+			#{code}, 
+			#{nick}, 
+			#{sex}, 
+			#{province}, 
+			#{city}, 
+			#{area}, 
+			#{address}, 
+			#{postcode}, 
+			#{birthday}, 
+			#{age}, 
+			#{industryid}, 
+			#{subIndustryId}, 
+			#{ins},
+			#{grade}, 
+			#{online}, 
+			#{inTime}, 
+			#{jwd}, 
+			#{referee}, 
+			#{refereeId}, 
+			#{state}, 
+			#{referral}, 
+			#{accountBalance}, 
+			#{turnover}, 
+			#{commission}, 
+			#{n}, 
+			#{m}, 
+			#{mBlance}, 
+			#{qrCode}, 
+			#{els}
+		)
+	</insert>
+	
+	<select id="getObjectById" resultType="com.jk.modules.wechat.entity.WxUserEntity">
+		SELECT
+			`id`, 
+			`account`, 
+			`password`, 
+			`portrait`, 
+			`wxkey`, 
+			`code`, 
+			`nick`, 
+			`sex`, 
+			`province`, 
+			`city`, 
+			`area`, 
+			`address`, 
+			`postcode`, 
+			`birthday`, 
+			`age`, 
+			`industryid`, 
+			`sub_industry_id`, 
+			`ins`,
+			`grade`, 
+			`online`, 
+			`in_time`, 
+			`jwd`, 
+			`referee`, 
+			`referee_id`, 
+			`state`, 
+			`referral`, 
+			`account_balance`, 
+			`turnover`, 
+			`commission`, 
+			`n`, 
+			`m`, 
+			`m_blance`, 
+			`qr_code`, 
+			`els`
+		FROM
+			wx_user
+		WHERE
+			id = #{id}
+	</select>
+	
+	<update id="update">
+		UPDATE wx_user
+	 	<set>
+			<if test="account != null">`account` = #{account}, </if>
+			<if test="password != null">`password` = #{password}, </if>
+			<if test="portrait != null">`portrait` = #{portrait}, </if>
+			<if test="wxkey != null">`wxkey` = #{wxkey}, </if>
+			<if test="code != null">`code` = #{code}, </if>
+			<if test="nick != null">`nick` = #{nick}, </if>
+			<if test="sex != null">`sex` = #{sex}, </if>
+			<if test="province != null">`province` = #{province}, </if>
+			<if test="city != null">`city` = #{city}, </if>
+			<if test="area != null">`area` = #{area}, </if>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="postcode != null">`postcode` = #{postcode}, </if>
+			<if test="birthday != null">`birthday` = #{birthday}, </if>
+			<if test="age != null">`age` = #{age}, </if>
+			<if test="industryid != null">`industryid` = #{industryid}, </if>
+			<if test="subIndustryId != null">`sub_industry_id` = #{subIndustryId}, </if>
+			<if test="ins != null">`ins` = #{ins}, </if>
+			<if test="grade != null">`grade` = #{grade}, </if>
+			<if test="online != null">`online` = #{online}, </if>
+			<if test="inTime != null">`in_time` = #{inTime}, </if>
+			<if test="jwd != null">`jwd` = #{jwd}, </if>
+			<if test="referee != null">`referee` = #{referee}, </if>
+			<if test="refereeId != null">`referee_id` = #{refereeId}, </if>
+			<if test="state != null">`state` = #{state}, </if>
+			<if test="referral != null">`referral` = #{referral}, </if>
+			<if test="accountBalance != null">`account_balance` = #{accountBalance}, </if>
+			<if test="turnover != null">`turnover` = #{turnover}, </if>
+			<if test="commission != null">`commission` = #{commission}, </if>
+			<if test="n != null">`n` = #{n}, </if>
+			<if test="m != null">`m` = #{m}, </if>
+			<if test="mBlance != null">`m_blance` = #{mBlance}, </if>
+			<if test="qrCode != null">`qr_code` = #{qrCode}, </if>
+			<if test="els != null">`els` = #{els}</if>
+		</set>
+		WHERE
+			id = #{id}
+	</update>
+	
+	<delete id="batchRemove">
+		DELETE
+		FROM
+			wx_user
+		WHERE
+			id IN
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<select id="getByUserAccount" resultType="com.jk.modules.wechat.entity.WxUserEntity">
+		SELECT *
+		FROM
+			wx_user
+		WHERE
+		account = #{account}
+	</select>
+
+
+
+
+</mapper>

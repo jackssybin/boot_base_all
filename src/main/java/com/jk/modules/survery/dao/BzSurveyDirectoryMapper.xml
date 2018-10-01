@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jk.modules.survery.dao.BzSurveyDirectoryMapper">
+	
+	<select id="listForPage" resultType="com.jk.modules.survery.entity.BzSurveyDirectoryEntity">
+		SELECT
+			`id`, 
+			`an_item_least_num`, 
+			`answer_num`, 
+			`create_date`, 
+			`dir_type`, 
+			`excerpt_num`, 
+			`html_path`, 
+			`is_share`, 
+			`parent_id`, 
+			`sid`, 
+			`survey_detail_id`, 
+			`survey_model`, 
+			`survey_name`, 
+			`survey_qu_num`, 
+			`survey_state`, 
+			`survey_tag`, 
+			`user_id`, 
+			`view_answer`, 
+			`visibility`
+		FROM
+			bz_survey_directory
+        <where>
+			                <if test="id != null and id != ''">
+                    AND u.id LIKE concat('%',#{id},'%')
+                </if>
+			                <if test="an_item_least_num != null and an_item_least_num != ''">
+                    AND u.an_item_least_num LIKE concat('%',#{an_item_least_num},'%')
+                </if>
+			                <if test="answer_num != null and answer_num != ''">
+                    AND u.answer_num LIKE concat('%',#{answer_num},'%')
+                </if>
+			                <if test="create_date != null and create_date != ''">
+                    AND u.create_date LIKE concat('%',#{create_date},'%')
+                </if>
+			                <if test="dir_type != null and dir_type != ''">
+                    AND u.dir_type LIKE concat('%',#{dir_type},'%')
+                </if>
+			                <if test="excerpt_num != null and excerpt_num != ''">
+                    AND u.excerpt_num LIKE concat('%',#{excerpt_num},'%')
+                </if>
+			                <if test="html_path != null and html_path != ''">
+                    AND u.html_path LIKE concat('%',#{html_path},'%')
+                </if>
+			                <if test="is_share != null and is_share != ''">
+                    AND u.is_share LIKE concat('%',#{is_share},'%')
+                </if>
+			                <if test="parent_id != null and parent_id != ''">
+                    AND u.parent_id LIKE concat('%',#{parent_id},'%')
+                </if>
+			                <if test="sid != null and sid != ''">
+                    AND u.sid LIKE concat('%',#{sid},'%')
+                </if>
+			                <if test="survey_detail_id != null and survey_detail_id != ''">
+                    AND u.survey_detail_id LIKE concat('%',#{survey_detail_id},'%')
+                </if>
+			                <if test="survey_model != null and survey_model != ''">
+                    AND u.survey_model LIKE concat('%',#{survey_model},'%')
+                </if>
+			                <if test="survey_name != null and survey_name != ''">
+                    AND u.survey_name LIKE concat('%',#{survey_name},'%')
+                </if>
+			                <if test="survey_qu_num != null and survey_qu_num != ''">
+                    AND u.survey_qu_num LIKE concat('%',#{survey_qu_num},'%')
+                </if>
+			                <if test="survey_state != null and survey_state != ''">
+                    AND u.survey_state LIKE concat('%',#{survey_state},'%')
+                </if>
+			                <if test="survey_tag != null and survey_tag != ''">
+                    AND u.survey_tag LIKE concat('%',#{survey_tag},'%')
+                </if>
+			                <if test="user_id != null and user_id != ''">
+                    AND u.user_id LIKE concat('%',#{user_id},'%')
+                </if>
+			                <if test="view_answer != null and view_answer != ''">
+                    AND u.view_answer LIKE concat('%',#{view_answer},'%')
+                </if>
+			                <if test="visibility != null and visibility != ''">
+                    AND u.visibility LIKE concat('%',#{visibility},'%')
+                </if>
+			        </where>
+		ORDER BY
+			id DESC
+	</select>
+	
+	<insert id="save">
+		INSERT INTO bz_survey_directory (
+			`id`, 
+			`an_item_least_num`, 
+			`answer_num`, 
+			`create_date`, 
+			`dir_type`, 
+			`excerpt_num`, 
+			`html_path`, 
+			`is_share`, 
+			`parent_id`, 
+			`sid`, 
+			`survey_detail_id`, 
+			`survey_model`, 
+			`survey_name`, 
+			`survey_qu_num`, 
+			`survey_state`, 
+			`survey_tag`, 
+			`user_id`, 
+			`view_answer`, 
+			`visibility`
+		)
+		VALUES (
+			#{id}, 
+			#{anItemLeastNum}, 
+			#{answerNum}, 
+			#{createDate}, 
+			#{dirType}, 
+			#{excerptNum}, 
+			#{htmlPath}, 
+			#{isShare}, 
+			#{parentId}, 
+			#{sid}, 
+			#{surveyDetailId}, 
+			#{surveyModel}, 
+			#{surveyName}, 
+			#{surveyQuNum}, 
+			#{surveyState}, 
+			#{surveyTag}, 
+			#{userId}, 
+			#{viewAnswer}, 
+			#{visibility}
+		)
+	</insert>
+	
+	<select id="getObjectById" resultType="com.jk.modules.survery.entity.BzSurveyDirectoryEntity">
+		SELECT
+			`id`, 
+			`an_item_least_num`, 
+			`answer_num`, 
+			`create_date`, 
+			`dir_type`, 
+			`excerpt_num`, 
+			`html_path`, 
+			`is_share`, 
+			`parent_id`, 
+			`sid`, 
+			`survey_detail_id`, 
+			`survey_model`, 
+			`survey_name`, 
+			`survey_qu_num`, 
+			`survey_state`, 
+			`survey_tag`, 
+			`user_id`, 
+			`view_answer`, 
+			`visibility`
+		FROM
+			bz_survey_directory
+		WHERE
+			id = #{id}
+	</select>
+	
+	<update id="update">
+		UPDATE bz_survey_directory
+	 	<set>
+			<if test="anItemLeastNum != null">`an_item_least_num` = #{anItemLeastNum}, </if>
+			<if test="answerNum != null">`answer_num` = #{answerNum}, </if>
+			<if test="createDate != null">`create_date` = #{createDate}, </if>
+			<if test="dirType != null">`dir_type` = #{dirType}, </if>
+			<if test="excerptNum != null">`excerpt_num` = #{excerptNum}, </if>
+			<if test="htmlPath != null">`html_path` = #{htmlPath}, </if>
+			<if test="isShare != null">`is_share` = #{isShare}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="sid != null">`sid` = #{sid}, </if>
+			<if test="surveyDetailId != null">`survey_detail_id` = #{surveyDetailId}, </if>
+			<if test="surveyModel != null">`survey_model` = #{surveyModel}, </if>
+			<if test="surveyName != null">`survey_name` = #{surveyName}, </if>
+			<if test="surveyQuNum != null">`survey_qu_num` = #{surveyQuNum}, </if>
+			<if test="surveyState != null">`survey_state` = #{surveyState}, </if>
+			<if test="surveyTag != null">`survey_tag` = #{surveyTag}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="viewAnswer != null">`view_answer` = #{viewAnswer}, </if>
+			<if test="visibility != null">`visibility` = #{visibility}</if>
+		</set>
+		WHERE
+			id = #{id}
+	</update>
+	
+	<delete id="batchRemove">
+		DELETE
+		FROM
+			bz_survey_directory
+		WHERE
+			id IN
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,62 @@
+package ${package}.modules.${module}.service.impl;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ${package}.common.entity.Page;
+import ${package}.common.entity.Query;
+import ${package}.common.entity.R;
+import ${package}.common.utils.CommonUtils;
+import ${package}.modules.${module}.entity.${className}Entity;
+import ${package}.modules.${module}.manager.${className}Manager;
+import ${package}.modules.${module}.service.${className}Service;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @url ${url}
+ * @date ${datetime}
+ */
+@Service("${objName}Service")
+public class ${className}ServiceImpl implements ${className}Service {
+
+	@Autowired
+	private ${className}Manager ${objName}Manager;
+
+	@Override
+	public Page<${className}Entity> list${className}(Map<String, Object> params) {
+		Query query = new Query(params);
+		Page<${className}Entity> page = new Page<>(query);
+		${objName}Manager.list${className}(page, query);
+		return page;
+	}
+
+	@Override
+	public R save${className}(${className}Entity role) {
+		int count = ${objName}Manager.save${className}(role);
+		return CommonUtils.msg(count);
+	}
+
+	@Override
+	public R get${className}ById(Long id) {
+		${className}Entity ${objName} = ${objName}Manager.get${className}ById(id);
+		return CommonUtils.msg(${objName});
+	}
+
+	@Override
+	public R update${className}(${className}Entity ${objName}) {
+		int count = ${objName}Manager.update${className}(${objName});
+		return CommonUtils.msg(count);
+	}
+
+	@Override
+	public R batchRemove(Long[] id) {
+		int count = ${objName}Manager.batchRemove(id);
+		return CommonUtils.msg(id, count);
+	}
+
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('')"></head>
+<body>
+	<div id="dpLTE" class="container-fluid" v-cloak>
+		<table class="form" id="form">
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.anItemLeastNum" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.answerNum" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.createDate" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.dirType" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.excerptNum" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.htmlPath" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.isShare" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.parentId" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.sid" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.surveyDetailId" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.surveyModel" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.surveyName" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.surveyQuNum" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.surveyState" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.surveyTag" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.userId" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.viewAnswer" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+			<tr>
+	            <td class="formTitle"><font face="宋体">*</font></td>
+	            <td class="formValue">
+					<input type="text" class="form-control" placeholder="" v-model="bzSurveyDirectory.visibility" isvalid="yes" checkexpession="NotNull">
+	            </td>
+        	</tr>
+		</table>
+	</div>
+	<div th:include="include/footer_js::footer"></div>
+	<script th:src="@{/js/base/survery/add.js}"></script>
+</body>
+</html>

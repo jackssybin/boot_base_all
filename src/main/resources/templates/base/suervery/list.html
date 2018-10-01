@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('')"></head>
+<body>
+<div id="dpLTE" class="container-fluid" v-cloak>
+	<div class="row">
+		<div class="col-md-4 form-inline pull-left">
+			<div class="form-group">
+				                    <input v-model="id" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="an_item_least_num" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="answer_num" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="create_date" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="dir_type" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="excerpt_num" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="html_path" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="is_share" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="parent_id" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="sid" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="survey_detail_id" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="survey_model" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="survey_name" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="survey_qu_num" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="survey_state" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="survey_tag" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="user_id" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="view_answer" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				                    <input v-model="visibility" @keyup.enter="load" type="text" class="form-control" placeholder="请输入" style="width: 120px;" />
+				
+			</div>
+			<div class="form-group">
+			    <a class="btn btn-primary" @click="load"><i class="fa fa-search"></i>&nbsp;查询</a>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="btn-toolbar pull-right">
+				<div class="btn-group">
+		            <a v-if="hasPermission('base:survery:list')" class="btn btn-default" onclick="reload();"><i class="fa fa-refresh"></i>&nbsp;刷新</a>
+		            <a v-if="hasPermission('base:survery:save')" class="btn btn-default" @click="save"><i class="fa fa-plus"></i>&nbsp;新增</a>
+		            <a v-if="hasPermission('base:survery:edit')" class="btn btn-default" @click="edit"><i class="fa fa-pencil-square-o"></i>&nbsp;编辑</a>
+		            <a v-if="hasPermission('base:survery:remove')" class="btn btn-default" @click="remove"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+		        </div>
+	        </div>
+		</div>
+	</div>
+	<div class="row">
+		<table id="dataGrid"></table>
+	</div>
+</div>
+<div th:include="include/footer_js::footer"></div>
+<script th:src="@{/js/base/survery/list.js}"></script>
+</body>
+</html>

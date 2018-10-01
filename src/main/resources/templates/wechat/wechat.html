@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>微信端登录注册</title>
+<style>
+.body{text-align:center;}
+.input{margin-top:30%;}
+.input_btn{margin-top:10%;}
+.account{width:80%;height:40px;border-color:#3C3;border-radius:5px;font-size:20px;}
+.login{width:80%;height:50px;border-color:#FFF;background-color:#3C3;border-radius:5px;font-size:20px;color:#FFF;font-weight:bolder;}
+.insert{width:80%;height:50px;border-color:#3C3;background-color:#FFF;border-radius:5px;font-size:20px;color:#3C3;font-weight:bolder;}
+</style>
+</head>
+
+<body class="body">
+<div class="input">
+	<input type="text" placeholder="&nbsp;&nbsp;&nbsp;账&nbsp;&nbsp;&nbsp;号" class="account"/>
+    <br/><br/>
+    <input type="password" placeholder="&nbsp;&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;码" class="account"/>
+</div>
+<div class="input_btn">
+    <input type="button" value="登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录" class="login" onclick="Go()"/>
+    <br/><br/>
+    <input type="button" value="注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册" class="insert"/>
+</div>
+<script type="text/javascript">
+    function Go(){
+        location. href="../wx";
+    }
+</script>
+</body>
+</html>

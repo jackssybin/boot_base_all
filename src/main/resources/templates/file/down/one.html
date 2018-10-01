@@ -1,0 +1,35 @@
+ <!DOCTYPE html>  
+ <html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+ <title>单个文件下载</title>
+
+ </head>  
+<body style="text-align: center;">
+
+<!--单个文件下载操作-->
+<div align="center">
+ <h3>通过路径下载</h3><br/>
+ <a href="javascript:;" class="btn btn-default" onclick="goPage('../../upload/file/pic/151641235250311.jpg');">点我下载（图片和pdf自动打开，其他的自动下载）</a><br/>
+</div>
+
+<!--单个文件下载操作-->
+<div align="center">
+ <h3>通过IO下载</h3><br/>
+ <a href="javascript:;" class="btn btn-default" onclick="goPage('../../down/file/one');">点我下载</a>
+</div>
+
+
+
+
+
+
+
+<script language="JavaScript">
+ function goPage(url)
+ {
+     location.href=url;
+ }
+</script>
+ </body>  
+ </html>  
