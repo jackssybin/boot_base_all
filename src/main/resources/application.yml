@@ -5,7 +5,7 @@ server:
         max-threads: 1000
         min-spare-threads: 30
     port: 8020
-    #打开注释，则通过【http://localhost/dp】访问
+    #打开注释，则通过【http://localhost/jk】访问
     context-path: /jk
 
 spring:

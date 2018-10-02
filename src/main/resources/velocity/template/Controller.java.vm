@@ -19,7 +19,6 @@ import ${package}.modules.${module}.service.${className}Service;
  *
  * @author ${author}
  * @email ${email}
- * @url ${url}
  * @date ${datetime}
  */
 @RestController

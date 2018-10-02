@@ -16,7 +16,6 @@ import ${package}.modules.${module}.manager.${className}Manager;
  *
  * @author ${author}
  * @email ${email}
- * @url ${url}
  * @date ${datetime}
  */
 @Component("${objName}Manager")

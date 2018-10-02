@@ -35,4 +35,9 @@ public class SysPageController {
 		return module + "/" + url;
 	}
 
+	@RequestMapping("/{url}.html")
+	public String page( @PathVariable("url") String url) {
+		return url;
+	}
+
 }

@@ -6,6 +6,8 @@ import com.jk.common.annotation.SysLog;
 import com.jk.common.entity.Page;
 import com.jk.common.entity.R;
 import com.jk.modules.sys.service.SysLogService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,7 @@ import com.jk.modules.sys.entity.SysLogEntity;
  */
 @RestController
 @RequestMapping("/sys/log")
+@Api("系统日志")
 public class SysLogController extends AbstractController {
 
 	@Autowired
@@ -30,6 +33,7 @@ public class SysLogController extends AbstractController {
 	 * @return
 	 */
 	@RequestMapping("/list")
+	@ApiOperation("系统日志list")
 	public Page<SysLogEntity> listLog(@RequestBody Map<String, Object> params) {
 		return sysLogService.listLog(params);
 	}
