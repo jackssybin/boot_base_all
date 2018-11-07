@@ -51,7 +51,7 @@ var vm = new Vue({
 				title: '新增${comments}',
 				url: '${viewPath}/add.html?_' + $.now(),
 				width: '420px',
-				height: '350px',
+				height: '550px',
 				yes : function(iframeId) {
 					top.frames[iframeId].vm.acceptClick();
 				},
@@ -64,7 +64,7 @@ var vm = new Vue({
 					title: '编辑${comments}',
 					url: '${viewPath}/edit.html?_' + $.now(),
 					width: '420px',
-					height: '350px',
+					height: '550px',
 					success: function(iframeId){
 						top.frames[iframeId].vm.${objName}.${pk.fieldName} = ck[0].${pk.fieldName};
 						top.frames[iframeId].vm.setForm();

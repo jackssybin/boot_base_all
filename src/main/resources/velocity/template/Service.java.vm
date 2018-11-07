@@ -1,6 +1,7 @@
 package ${package}.modules.${module}.service;
 
 import java.util.Map;
+import java.util.List;
 
 import ${package}.common.entity.Page;
 import ${package}.common.entity.R;
@@ -24,5 +25,9 @@ public interface ${className}Service {
 	R update${className}(${className}Entity ${objName});
 	
 	R batchRemove(Long[] id);
+
+    R batchSave(List<${className}Entity> items);
+
+
 	
 }

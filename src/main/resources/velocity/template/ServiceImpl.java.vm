@@ -1,6 +1,7 @@
 package ${package}.modules.${module}.service.impl;
 
 import java.util.Map;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,5 +58,11 @@ public class ${className}ServiceImpl implements ${className}Service {
 		int count = ${objName}Manager.batchRemove(id);
 		return CommonUtils.msg(id, count);
 	}
+
+    @Override
+    public R batchSave(List<${className}Entity> items) {
+        int count = ${objName}Manager.batchSave(items);
+        return CommonUtils.msg(count);
+    }
 
 }

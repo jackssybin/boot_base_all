@@ -51,5 +51,13 @@ public class ${className}ManagerImpl implements ${className}Manager {
 		int count = ${objName}Mapper.batchRemove(id);
 		return count;
 	}
-	
+
+
+    @Override
+    public int batchSave(List<${className}Entity> items) {
+        int count = ${objName}Mapper.batchSave(items);
+        return count;
+    }
+
+
 }

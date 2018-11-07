@@ -2,6 +2,9 @@ package ${package}.modules.${module}.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import com.alibaba.fastjson.annotation.JSONField;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
@@ -23,6 +26,10 @@ public class ${className}Entity implements Serializable {
 	/**
 	 * $column.columnComment
 	 */
+	#if( $column.fieldName=='id' ||$column.fieldName=='createTime')
+    @JSONField(serialize = false)
+	#end
+    @ApiModelProperty(value="$column.columnComment",name="$column.fieldName")
 	private $column.fieldType $column.fieldName;
 	
 #end

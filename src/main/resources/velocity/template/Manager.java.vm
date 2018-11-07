@@ -24,5 +24,7 @@ public interface ${className}Manager {
 	int update${className}(${className}Entity ${objName});
 	
 	int batchRemove(Long[] id);
+
+    int batchSave(List<${className}Entity> items);
 	
 }
