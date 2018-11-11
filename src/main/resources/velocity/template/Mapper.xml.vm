@@ -14,7 +14,7 @@
         <where>
 			#foreach($column in $columns)
                 <if test="$column.columnName != null and $column.columnName.trim() != ''">
-                    AND u.$column.columnName LIKE concat('%',#{$column.columnName},'%')
+                    AND $column.columnName LIKE concat('%',#{$column.columnName},'%')
                 </if>
 			#end
         </where>
