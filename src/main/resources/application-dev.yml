@@ -12,6 +12,13 @@ spring:
               username: root
 #              密码
               password: root1234
+            second:  #第二个数据源
+                #              url: jdbc:mysql://59.110.240.154:3306/boot_base?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+                url: jdbc:mysql://localhost:3306/boot_base_all?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+                #              账户
+                username: root
+                #              密码
+                password: root1234
 #              连接池启动时的初始值.
             initial-size: 10
 #            连接池的最大值
