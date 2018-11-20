@@ -49,3 +49,11 @@ mybatis:
     mapperLocations: classpath:mapper/**/*.xml
     configLocation: classpath:mybatis.xml
 debug: true
+# Elasticsearch
+elasticsearch:
+    ip: localhost
+    port: 9300
+    pool: 5
+#    elasticsearch.ip=xxx.xxx.xxx
+#    elasticsearch.port=9300
+#    elasticsearch.pool=5
